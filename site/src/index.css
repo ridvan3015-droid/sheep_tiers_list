@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --font-sans: var(--app-font-sans);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --background: 220 13% 9%;
+  --foreground: 210 20% 92%;
+  --card: 220 13% 12%;
+  --card-foreground: 210 20% 92%;
+  --popover: 220 13% 12%;
+  --popover-foreground: 210 20% 92%;
+  --primary: 258 90% 66%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 220 13% 18%;
+  --secondary-foreground: 210 20% 80%;
+  --muted: 220 13% 16%;
+  --muted-foreground: 215 15% 55%;
+  --accent: 258 90% 66%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 70% 55%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 220 13% 18%;
+  --input: 220 13% 18%;
+  --ring: 258 90% 66%;
+  --radius: 8px;
+  --app-font-sans: 'Inter', system-ui, sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    background-color: hsl(220, 13%, 9%);
+    color: hsl(210, 20%, 92%);
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .rank-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 0.875rem;
+  }
+
+  .rank-1 { background: linear-gradient(135deg, #f59e0b, #d97706); color: #1a1a1a; }
+  .rank-2 { background: linear-gradient(135deg, #9ca3af, #6b7280); color: #1a1a1a; }
+  .rank-3 { background: linear-gradient(135deg, #b45309, #92400e); color: white; }
+
+  .tier-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: white;
+  }
+
+  .region-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  .category-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    white-space: nowrap;
+    background: transparent;
+    color: hsl(215, 15%, 55%);
+    border: none;
+  }
+
+  .category-tab:hover {
+    background: hsl(220, 13%, 18%);
+    color: hsl(210, 20%, 92%);
+  }
+
+  .category-tab.active {
+    background: hsl(258, 90%, 66%);
+    color: white;
+  }
+
+  .search-input {
+    background: hsl(220, 13%, 16%);
+    border: 1px solid hsl(220, 13%, 22%);
+    border-radius: 8px;
+    padding: 8px 14px 8px 36px;
+    color: hsl(210, 20%, 92%);
+    font-size: 0.875rem;
+    outline: none;
+    width: 200px;
+    transition: border-color 0.15s, width 0.15s;
+  }
+
+  .search-input:focus {
+    border-color: hsl(258, 90%, 66%);
+    width: 260px;
+  }
+
+  .search-input::placeholder {
+    color: hsl(215, 15%, 45%);
+  }
+}
